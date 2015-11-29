@@ -11,6 +11,9 @@ define('SPARKPRICE', 4);
 $tireqty = $_POST['tireqty'];
 $oilqty = $_POST['oilqty'];
 $sparkqty = $_POST['sparkqty'];
+$address = $_POST['address'];
+
+$DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
 
 $find = $_POST['find'];
 
@@ -18,6 +21,9 @@ $totalqty = $tireqty + $oilqty + $sparkqty;
 
 $totalamount = $tireqty * TIREPRICE + $oilqty * OILPRICE + $sparkqty * SPARKPRICE;
 
+echo $_SERVER['DOCUMENT_ROOT'];
+
+$fp = fopen("$DOCUMENT_ROOT/../orders/orders.txt",'ab');
 
 if ($tireqty < 10) {
     $disount = 0;
